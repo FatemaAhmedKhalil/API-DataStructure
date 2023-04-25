@@ -66,6 +66,7 @@ u32 Stack_GetLength (Stack* StackArray)
     }
     return length;
 }
+
 Stack_t Stack_Print (Stack* StackArray)
 {
     if (StackArray->Top == -1)

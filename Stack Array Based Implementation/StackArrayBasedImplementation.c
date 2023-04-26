@@ -11,7 +11,7 @@
 #include <stdbool.h>
 
 #include "STD_Types.h"
-#include "Stack.h"
+#include "StackArrayBasedImplementation.h"
 
 Stack_t Stack_Initialization (Stack* StackArray)
 {

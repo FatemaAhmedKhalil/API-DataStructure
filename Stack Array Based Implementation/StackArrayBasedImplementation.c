@@ -60,7 +60,8 @@ Stack_t Stack_CheckFull (Stack* StackArray)
 u32 Stack_GetLength (Stack* StackArray)
 {
     u32 length = 0;
-    for (int i = 0; i <= StackArray->Top; i++ )
+    int i = 0;
+    for (i = 0; i <= StackArray->Top; i++ )
     {
         length++;
     }
@@ -72,6 +73,7 @@ Stack_t Stack_Print (Stack* StackArray)
     if (StackArray->Top == -1)
         return Stack_IsEmpty;
 
+    int i = 0;
     for (int i = 0; i <= StackArray->Top; i++ )
     {
         if (i == StackArray->Top)

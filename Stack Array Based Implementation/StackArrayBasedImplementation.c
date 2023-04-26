@@ -24,7 +24,7 @@ Stack_t Stack_Push (Stack* StackArray, u32 u32Data)
 {
     if (StackArray->Top == (Stack_MaxLength-1))
         return Stack_IsFull;
-    else
+    
     StackArray->Top ++;
     StackArray->Stack_Array[StackArray->Top] = u32Data;
 

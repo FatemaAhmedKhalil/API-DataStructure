@@ -46,7 +46,7 @@ Stack_t Stack_CheckEmpty (Stack* StackArray)
     if (StackArray->Top == -1)
         return Stack_IsEmpty;
 
-    return Stack_ValidForMoreOperation;
+    return Stack_IsNotEmpty;
 }
 
 Stack_t Stack_CheckFull (Stack* StackArray)
@@ -54,7 +54,7 @@ Stack_t Stack_CheckFull (Stack* StackArray)
     if (StackArray->Top == (Stack_MaxLength-1))
         return Stack_IsFull;
 
-    return Stack_ValidForMoreOperation;
+    return Stack_IsNotFull;
 }
 
 u32 Stack_GetLength (Stack* StackArray)

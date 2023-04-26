@@ -16,7 +16,8 @@ typedef enum
     Stack_AlreadyExist,
     Stack_IsFull,
     Stack_IsEmpty,
-    Stack_ValidForMoreOperation
+    Stack_IsNotEmpty,
+    Stack_IsNotFull
 } Stack_t;
 
 /** Stack Structure **/

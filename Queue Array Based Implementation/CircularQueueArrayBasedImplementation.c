@@ -1,7 +1,7 @@
 /***********************************************************************************************/
 /***********************************************************************************************/
 /************************************* Author: Fatema Ahmed ************************************/
-/******************************* API: Stack Array Based Implementation *************************/
+/*************************** API: Circular Queue Array Based Implementation ********************/
 /***************************************** Version: 1.0 ****************************************/
 /***********************************************************************************************/
 /***********************************************************************************************/
@@ -11,75 +11,104 @@
 #include <stdbool.h>
 
 #include "STD_Types.h"
-#include "Stack.h"
+#include "CircularQueueArrayBasedImplementation.h"
 
-Stack_t Stack_Initialization (Stack* StackArray)
+CircularQueue_t CircularQueue_Initialization (CircularQueue* CircularQueueArray)
 {
-    StackArray->Top = -1;
+    CircularQueueArray->Front = -1;
+    CircularQueueArray->Rear = -1;
 
-    return Stack_ValidOperation;
+    return CircularQueue_ValidOperation;
 }
 
-Stack_t Stack_Push (Stack* StackArray, u32 u32Data)
+CircularQueue_t CircularQueue_Push (CircularQueue* CircularQueueArray, u32 u32Data)
 {
-    if (StackArray->Top == (Stack_MaxLength-1))
-        return Stack_IsFull;
-    else
-    StackArray->Top ++;
-    StackArray->Stack_Array[StackArray->Top] = u32Data;
+    if (CircularQueueArray->Front < CircularQueueArray->Rear)
+    {
+        if ( ((CircularQueueArray->Rear)-(CircularQueueArray->Front)+1) == CircularQueue_MaxLength )
+            return CircularQueue_IsFull;
+    }
+    else if (CircularQueueArray->Front > CircularQueueArray->Rear)
+    {
+        if ( ((CircularQueueArray->Rear)+1)%CircularQueue_MaxLength == CircularQueueArray->Front )
+            return CircularQueue_IsFull;
+    }
 
-    return Stack_ValidOperation;
+    if (CircularQueueArray->Front == -1)
+        CircularQueueArray->Front = 0;
+
+    CircularQueueArray->Rear = ((CircularQueueArray->Rear)+1)%CircularQueue_MaxLength;
+    CircularQueueArray->CircularQueue_Array[CircularQueueArray->Rear] = u32Data;
+
+    return CircularQueue_ValidOperation;
 }
 
-Stack_t Stack_Pop (Stack* StackArray)
+CircularQueue_t CircularQueue_Pop (CircularQueue* CircularQueueArray)
 {
-    if (StackArray->Top == -1)
-        return Stack_IsEmpty;
+    if (CircularQueueArray->Rear == -1 && CircularQueueArray->Front == -1)
+        return CircularQueue_IsEmpty;
 
-    StackArray->Top -= 1;
+    if (CircularQueueArray->Rear == CircularQueueArray->Front) // if Remaining Just One Element
+    {
+        CircularQueueArray->Front = -1;
+        CircularQueueArray->Rear = -1;
+        return CircularQueue_ValidOperation;
+    }
 
-    return Stack_ValidOperation;
+    CircularQueueArray->Front++;
+
+    return CircularQueue_ValidOperation;
 }
 
-Stack_t Stack_CheckEmpty (Stack* StackArray)
+CircularQueue_t CircularQueue_CheckEmpty (CircularQueue* CircularQueueArray)
 {
-    if (StackArray->Top == -1)
-        return Stack_IsEmpty;
+    if (CircularQueueArray->Rear == -1 && CircularQueueArray->Front == -1)
+        return CircularQueue_IsEmpty;
 
-    return Stack_ValidForMoreOperation;
+    return CircularQueue_IsNotEmpty;
 }
 
-Stack_t Stack_CheckFull (Stack* StackArray)
+CircularQueue_t CircularQueue_CheckFull (CircularQueue* CircularQueueArray)
 {
-    if (StackArray->Top == (Stack_MaxLength-1))
-        return Stack_IsFull;
+    if (CircularQueueArray->Front < CircularQueueArray->Rear)
+    {
+        if ( ((CircularQueueArray->Rear)-(CircularQueueArray->Front)+1) == CircularQueue_MaxLength )
+            return CircularQueue_IsFull;
+    }
+    else if (CircularQueueArray->Front > CircularQueueArray->Rear)
+    {
+        if ( ((CircularQueueArray->Rear)+1)%CircularQueue_MaxLength == CircularQueueArray->Front )
+            return CircularQueue_IsFull;
+    }
 
-    return Stack_ValidForMoreOperation;
+    return CircularQueue_IsNotFull;
 }
 
-u32 Stack_GetLength (Stack* StackArray)
+u32 CircularQueue_GetLength (CircularQueue* CircularQueueArray)
 {
     u32 length = 0;
-    for (int i = 0; i <= StackArray->Top; i++ )
-    {
+
+    int i;
+    for (i = CircularQueueArray->Front; i != CircularQueueArray->Rear; i = (i+1)%CircularQueue_MaxLength )
         length++;
-    }
+    if (i == CircularQueueArray->Rear)
+        length++;
+
     return length;
 }
-
-Stack_t Stack_Print (Stack* StackArray)
+CircularQueue_t CircularQueue_Print (CircularQueue* CircularQueueArray)
 {
-    if (StackArray->Top == -1)
-        return Stack_IsEmpty;
+    if (CircularQueueArray->Rear == -1 && CircularQueueArray->Front == -1)
+        return CircularQueue_IsEmpty;
 
-    for (int i = 0; i <= StackArray->Top; i++ )
-    {
-        if (i == StackArray->Top)
+    int i;
+    for (i = CircularQueueArray->Front; i != CircularQueueArray->Rear; i = (i+1)%CircularQueue_MaxLength )
+        printf("%lu -> ", CircularQueueArray->CircularQueue_Array[i]);
+
+        if (i == CircularQueueArray->Rear)
         {
-            printf("%lu", StackArray->Stack_Array[i]);
-            return Stack_ValidOperation;
+            printf("%lu", CircularQueueArray->CircularQueue_Array[i]);
+            return CircularQueue_ValidOperation;
         }
-
-        printf("%lu -> ", StackArray->Stack_Array[i]);
-    }
 }
+

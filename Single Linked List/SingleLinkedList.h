@@ -37,6 +37,8 @@ typedef struct _SingleLL_
 /** Single Linked List Interface **/
 SingleLL_t SingleLinkedList_Initialization (SingleLL* List);
 
+Node *SingleLinkedList_CreateNode (SingleLL* List, u32 u32Data);
+
 SingleLL_t SingleLinkedList_InsertAtBegining (SingleLL* List, u32 u32Data);
 SingleLL_t SingleLinkedList_InsertAtEnd (SingleLL* List, u32 u32Data);
 SingleLL_t SingleLinkedList_InsertAtnthIndex (SingleLL* List, u32 u32Data, u32 u32Index);

@@ -21,9 +21,21 @@ SingleLL_t SingleLinkedList_Initialization (SingleLL* List)
     List->Size = 0;
 }
 
-SingleLL_t SingleLinkedList_InsertAtBegining (SingleLL* List, u32 u32Data)
+Node *SingleLinkedList_CreateNode (SingleLL* List, u32 u32Data)
 {
     Node *NewNode = malloc( sizeof(Node) );
+
+    if (NewNode != NULL)
+    {
+        NewNode->Next = NULL;
+        NewNode->Data = u32Data;
+    }
+    return NewNode;
+}
+
+SingleLL_t SingleLinkedList_InsertAtBegining (SingleLL* List, u32 u32Data)
+{
+    Node *NewNode = SingleLinkedList_CreateNode (List, u32Data);
 
     if (NewNode != NULL)
     {
@@ -33,7 +45,6 @@ SingleLL_t SingleLinkedList_InsertAtBegining (SingleLL* List, u32 u32Data)
             List->Tail = NewNode;
 
         List->Head = NewNode;
-        NewNode->Data = u32Data;
         (List->Size)++;
 
         return SingleLL_ValidOperation;
@@ -44,7 +55,7 @@ SingleLL_t SingleLinkedList_InsertAtBegining (SingleLL* List, u32 u32Data)
 
 SingleLL_t SingleLinkedList_InsertAtEnd (SingleLL* List, u32 u32Data)
 {
-    Node *NewNode = malloc( sizeof(Node) );
+    Node *NewNode = SingleLinkedList_CreateNode (List, u32Data);
 
     if (NewNode != NULL)
     {
@@ -54,14 +65,12 @@ SingleLL_t SingleLinkedList_InsertAtEnd (SingleLL* List, u32 u32Data)
         {
             List->Head = NewNode;
             List->Tail = NewNode;
-            NewNode->Data = u32Data;
             (List->Size)++;
             return SingleLL_ValidOperation;
         }
 
         List->Tail->Next = NewNode;
         List->Tail = NewNode;
-        NewNode->Data = u32Data;
         (List->Size)++;
 
         return SingleLL_ValidOperation;
@@ -84,7 +93,7 @@ SingleLL_t SingleLinkedList_InsertAtnthIndex (SingleLL* List, u32 u32Data, u32 u
     }
     else if (u32Index > 1 && u32Index < (List->Size)+1)
     {
-        Node *NewNode = malloc( sizeof(Node) );
+        Node *NewNode = SingleLinkedList_CreateNode (List, u32Data);
         if (NewNode != NULL)
         {
             Node *Temp;
@@ -95,7 +104,6 @@ SingleLL_t SingleLinkedList_InsertAtnthIndex (SingleLL* List, u32 u32Data, u32 u
 
             NewNode->Next = Temp->Next;
             Temp->Next = NewNode;
-            NewNode->Data = u32Data;
             (List->Size)++;
 
             return SingleLL_ValidOperation;

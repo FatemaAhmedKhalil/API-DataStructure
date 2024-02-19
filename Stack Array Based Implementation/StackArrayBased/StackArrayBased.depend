@@ -1,0 +1,35 @@
+# depslib dependency file v1.0
+1682546241 source:d:\fatema\college\career\embedded\data structure\api\stack array based implementation\stackarraybased\stackarraybasedimplementation.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"STD_Types.h"
+	"StackArrayBasedImplementation.h"
+
+1682375010 d:\fatema\college\career\embedded\data structure\api\stack array based implementation\stackarraybased\std_types.h
+
+1682546241 d:\fatema\college\career\embedded\data structure\api\stack array based implementation\stackarraybased\stackarraybasedimplementation.h
+
+1682544701 source:d:\fatema\college\career\embedded\data structure\api\stack array based implementation\stackarraybased\main.c
+	<stdio.h>
+	<stdlib.h>
+	"STD_Types.h"
+	"StackArrayBasedImplementation.h"
+
+1682639679 source:d:\fatema\college\career\embedded\06- data structure\api\stack array based implementation\stackarraybased\main.c
+	<stdio.h>
+	<stdlib.h>
+	"STD_Types.h"
+	"StackArrayBasedImplementation.h"
+
+1682375010 d:\fatema\college\career\embedded\06- data structure\api\stack array based implementation\stackarraybased\std_types.h
+
+1682546241 d:\fatema\college\career\embedded\06- data structure\api\stack array based implementation\stackarraybased\stackarraybasedimplementation.h
+
+1682546241 source:d:\fatema\college\career\embedded\06- data structure\api\stack array based implementation\stackarraybased\stackarraybasedimplementation.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"STD_Types.h"
+	"StackArrayBasedImplementation.h"
+

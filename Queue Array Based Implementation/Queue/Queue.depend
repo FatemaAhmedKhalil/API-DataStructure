@@ -1,0 +1,37 @@
+# depslib dependency file v1.0
+1682546415 source:d:\fatema\college\career\embedded\data structure\api\queue array based implementation\queue\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"STD_Types.h"
+	"CircularQueueArrayBasedImplementation.h"
+
+1682523164 d:\fatema\college\career\embedded\data structure\api\queue array based implementation\queue\std_types.h
+
+1682542974 d:\fatema\college\career\embedded\data structure\api\queue array based implementation\queue\circularqueuearraybasedimplementation.h
+
+1682546312 source:d:\fatema\college\career\embedded\data structure\api\queue array based implementation\queue\circularqueuearraybasedimplementation.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"STD_Types.h"
+	"CircularQueueArrayBasedImplementation.h"
+
+1682546312 source:d:\fatema\college\career\embedded\06- data structure\api\queue array based implementation\queue\circularqueuearraybasedimplementation.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"STD_Types.h"
+	"CircularQueueArrayBasedImplementation.h"
+
+1682523164 d:\fatema\college\career\embedded\06- data structure\api\queue array based implementation\queue\std_types.h
+
+1682542974 d:\fatema\college\career\embedded\06- data structure\api\queue array based implementation\queue\circularqueuearraybasedimplementation.h
+
+1682644836 source:d:\fatema\college\career\embedded\06- data structure\api\queue array based implementation\queue\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"STD_Types.h"
+	"CircularQueueArrayBasedImplementation.h"
+

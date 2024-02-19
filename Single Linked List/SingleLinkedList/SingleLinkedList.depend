@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1682791743 source:d:\fatema\college\career\embedded\06- data structure\api\single linked list\singlelinkedlist\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"STD_Types.h"
+	"SingleLinkedList.h"
+
+1676680334 d:\fatema\college\career\embedded\06- data structure\api\single linked list\singlelinkedlist\std_types.h
+
+1683386317 d:\fatema\college\career\embedded\06- data structure\api\single linked list\singlelinkedlist\singlelinkedlist.h
+
+1683386297 source:d:\fatema\college\career\embedded\06- data structure\api\single linked list\singlelinkedlist\singlelinkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"STD_Types.h"
+	"SingleLinkedList.h"
+
